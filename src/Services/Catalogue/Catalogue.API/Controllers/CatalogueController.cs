@@ -74,7 +74,7 @@ public class CatalogueController : ControllerBase
     }
 
     [HttpDelete("{id:length(24)}", Name = "DeleteProduct")]
-    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
     public async Task<ActionResult> DeleteProduct(string id)
     {
         var deleteResult = await _productRepository.DeleteProduct(id);

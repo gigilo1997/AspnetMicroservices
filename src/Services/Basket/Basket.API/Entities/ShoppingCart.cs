@@ -7,7 +7,7 @@ public class ShoppingCart
         Items = new List<ShoppingCartItem>();
     }
 
-    public ShoppingCart(string username) : base()
+    public ShoppingCart(string username) : this()
     {
         Username = username;
     }
