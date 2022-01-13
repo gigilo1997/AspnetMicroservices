@@ -58,7 +58,7 @@ public class CatalogueController : ControllerBase
     }
 
     [HttpPost]
-    [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(Product), (int)HttpStatusCode.Created)]
     public async Task<ActionResult<Product>> CreateProduct([FromBody] Product product)
     {
         await _productRepository.CreateProduct(product);
