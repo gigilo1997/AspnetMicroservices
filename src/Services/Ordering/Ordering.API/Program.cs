@@ -1,15 +1,17 @@
 using Ordering.Application;
+using Ordering.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var services = builder.Services;
 
+services.AddApplicationServices();
+services.AddInfrastructureServices(builder.Configuration);
+
 services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
-
-services.AddApplicationServices();
 
 var app = builder.Build();
 
