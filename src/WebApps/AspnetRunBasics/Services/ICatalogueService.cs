@@ -1,15 +1,12 @@
 ﻿using AspnetRunBasics.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace AspnetRunBasics.Services
+namespace AspnetRunBasics.Services;
+
+public interface ICatalogueService
 {
-    public interface ICatalogueService
-    {
 
-        Task<IEnumerable<CatalogueModel>> GetCatalogue();
-        Task<IEnumerable<CatalogueModel>> GetCatalogueByCategory(string category);
-        Task<CatalogueModel> GetCatalogue(string id);
-        Task<CatalogueModel> CreateCatalogue(CatalogueModel model);
-    }
+    Task<IEnumerable<CatalogueModel>> GetCatalogue();
+    Task<IEnumerable<CatalogueModel>> GetCatalogueByCategory(string category);
+    Task<CatalogueModel> GetCatalogue(string id);
+    Task<CatalogueModel> CreateCatalogue(CatalogueModel model);
 }

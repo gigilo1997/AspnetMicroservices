@@ -1,25 +1,20 @@
 ﻿using AspnetRunBasics.Extensions;
 using AspnetRunBasics.Models;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
 
-namespace AspnetRunBasics.Services
+namespace AspnetRunBasics.Services;
+
+public class OrderService : IOrderService
 {
-    public class OrderService : IOrderService
+    private readonly HttpClient _client;
+
+    public OrderService(HttpClient client)
     {
-        private readonly HttpClient _client;
+        _client = client ?? throw new ArgumentNullException(nameof(client));
+    }
 
-        public OrderService(HttpClient client)
-        {
-            _client = client ?? throw new ArgumentNullException(nameof(client));
-        }
-
-        public async Task<IEnumerable<OrderResponseModel>> GetOrdersByUserName(string username)
-        {
-            var response = await _client.GetAsync($"/Orders/{username}");
-            return await response.ReadContentAs<List<OrderResponseModel>>();
-        }
+    public async Task<IEnumerable<OrderResponseModel>> GetOrdersByUserName(string username)
+    {
+        var response = await _client.GetAsync($"/Orders/{username}");
+        return await response.ReadContentAs<List<OrderResponseModel>>();
     }
 }

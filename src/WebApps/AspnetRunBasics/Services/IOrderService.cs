@@ -1,12 +1,8 @@
 ﻿using AspnetRunBasics.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace AspnetRunBasics.Services
+namespace AspnetRunBasics.Services;
+
+public interface IOrderService
 {
-    public interface IOrderService
-    {
-        Task<IEnumerable<OrderResponseModel>> GetOrdersByUserName(string username);
-    }
-
+    Task<IEnumerable<OrderResponseModel>> GetOrdersByUserName(string username);
 }
