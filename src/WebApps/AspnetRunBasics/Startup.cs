@@ -27,10 +27,6 @@ namespace AspnetRunBasics
             services.AddHttpClient<IOrderService, OrderService>(c =>
                 c.BaseAddress = new Uri(Configuration["ApiSettings:GatewayAddress"]));
 
-            services.AddScoped<ICatalogueService, CatalogueService>();
-            services.AddScoped<IBasketService, BasketService>();
-            services.AddScoped<IOrderService, OrderService>();
-
             services.AddRazorPages();
         }
 
